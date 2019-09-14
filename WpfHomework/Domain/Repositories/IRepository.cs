@@ -11,6 +11,7 @@ namespace WpfHomework.Domain.Repositories
         IEnumerable<T> GetAll();
         void Create(T data);
         void Delete(T data);
+        T Get(int id);
         void SaveAll();
     }
 }

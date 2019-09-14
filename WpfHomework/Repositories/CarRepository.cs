@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfHomework.Domain.DataService;
 using WpfHomework.Domain.Models;
 using WpfHomework.Domain.Repositories;
 
@@ -10,10 +11,12 @@ namespace WpfHomework.Repositories
 {
     public class CarRepository : IRepository<Car>
     {
+        IDataService<IEnumerable<Car>> dataService;
         List<Car> list;
-        public CarRepository()
+        public CarRepository(IDataService<IEnumerable<Car>> dataService)
         {
-            list = new List<Car>();
+            this.dataService = dataService;
+            list = (dataService.Load()) as List<Car>;
         }
         public void Create(Car data)
         {
@@ -22,21 +25,22 @@ namespace WpfHomework.Repositories
 
         public void Delete(Car data)
         {
-            throw new NotImplementedException();
+            list.Remove(this.Get(data.Id));
+        }
+
+        public Car Get(int id)
+        {
+            return list.FirstOrDefault(x => x.Id == id);
         }
 
         public IEnumerable<Car> GetAll()
         { 
-            list.Add(new Car { Model = "Model1", Color = "Color1", Year = 2019 });
-            list.Add(new Car { Model = "Model2", Color = "Color2", Year = 2018 });
-            list.Add(new Car { Model = "Model3", Color = "Color3", Year = 2017 });
-            list.Add(new Car { Model = "Model4", Color = "Color4", Year = 2016 });
             return list;
         }
 
         public void SaveAll()
         {
-            throw new NotImplementedException();
+            dataService.Save(list);
         }
     }
 }

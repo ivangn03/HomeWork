@@ -12,6 +12,9 @@ namespace WpfHomework.Domain.Models
         private string _model;
         private string _color;
         private int _year;
+        static int _id;
+        public int Id { get; }
+        #region
         public string Model
         {
             get => _model;
@@ -36,6 +39,11 @@ namespace WpfHomework.Domain.Models
                 _year = value;
                 Notify();
             }
+        }
+        #endregion
+        public Car()
+        {
+            Id = ++_id;
         }
     }
 }

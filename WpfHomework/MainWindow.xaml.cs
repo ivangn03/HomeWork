@@ -23,22 +23,27 @@ namespace WpfHomework
     /// </summary>
     public partial class MainWindow : Window
     {
-        Data data1;
+        Data data;
         public MainWindow(Data data)
         {
-            this.data1 = data;
+            this.data = data;
             InitializeComponent();            
             grid.DataContext = data;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            data1.AddCar(new Car { Color = "Null", Model = "Null", Year = 0 });
+            data.AddCar(new Car { Color = "Null", Model = "Null", Year = 0 });
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            data1.RemoveCar();
+            data.RemoveCar();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            data.Save();
         }
     }
 }

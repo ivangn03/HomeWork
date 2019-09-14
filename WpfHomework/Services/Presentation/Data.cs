@@ -31,8 +31,12 @@ namespace WpfHomework.Services.Presentation
         }
         public void RemoveCar()
         {
-            Cars.Remove(SelectedCar);
             repository.Delete(SelectedCar);
+            Cars.Remove(SelectedCar);         
+        }
+        public void Save()
+        {
+            repository.SaveAll();
         }
         #endregion
     }
