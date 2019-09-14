@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfHomework.Domain.Models;
+using WpfHomework.Domain.Repositories;
+using WpfHomework.Services.Presentation;
 
 namespace WpfHomework
 {
@@ -20,9 +23,12 @@ namespace WpfHomework
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        Data data1;
+        public MainWindow(Data data)
         {
-            InitializeComponent();
+            this.data1 = data;
+            InitializeComponent();            
+            grid.DataContext = data;
         }
     }
 }

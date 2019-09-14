@@ -6,7 +6,31 @@
         xmlns:local="clr-namespace:WpfHomework"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Name="grid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition> </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ListBox 
+            FontSize="20"
+            Background="Aquamarine"
+            ItemsSource="{Binding Cars}"
+            SelectedItem="{Binding SelectedCar}"
+            >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Model}"></Label>
+                        <Label Content="{Binding Color}"></Label>
+                        <Label Content="{Binding Year}"></Label>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel></StackPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
     </Grid>
 </Window>
