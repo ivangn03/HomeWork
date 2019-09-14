@@ -21,9 +21,9 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding Model}"></Label>
-                        <Label Content="{Binding Color}"></Label>
-                        <Label Content="{Binding Year}"></Label>
+                            <Label Content="{Binding Model}"></Label>
+                            <Label Content="{Binding Color}"></Label>
+                            <Label Content="{Binding  Year}"></Label>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

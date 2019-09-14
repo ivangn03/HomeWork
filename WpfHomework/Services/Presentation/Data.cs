@@ -13,7 +13,7 @@ namespace WpfHomework.Services.Presentation
     {
         #region
         IRepository<Car> repository;
-        ObservableCollection<Car> Cars { get; set; }
+        public ObservableCollection<Car> Cars { get; set; }
         public Car SelectedCar { get; set; }
         #endregion
 
@@ -21,7 +21,7 @@ namespace WpfHomework.Services.Presentation
         {
             this.repository = repository;
             Cars = new ObservableCollection<Car>(repository.GetAll());
-         
+            
         }
         #region
         public void AddCar(Car car)
