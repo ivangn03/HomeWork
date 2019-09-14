@@ -30,5 +30,15 @@ namespace WpfHomework
             InitializeComponent();            
             grid.DataContext = data;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            data1.AddCar(new Car { Color = "Null", Model = "Null", Year = 0 });
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            data1.RemoveCar();
+        }
     }
 }

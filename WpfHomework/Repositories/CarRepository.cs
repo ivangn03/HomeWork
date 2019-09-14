@@ -10,9 +10,14 @@ namespace WpfHomework.Repositories
 {
     public class CarRepository : IRepository<Car>
     {
+        List<Car> list;
+        public CarRepository()
+        {
+            list = new List<Car>();
+        }
         public void Create(Car data)
         {
-            throw new NotImplementedException();
+            list.Add(data);
         }
 
         public void Delete(Car data)
@@ -21,8 +26,7 @@ namespace WpfHomework.Repositories
         }
 
         public IEnumerable<Car> GetAll()
-        {
-            List<Car> list = new List<Car>();
+        { 
             list.Add(new Car { Model = "Model1", Color = "Color1", Year = 2019 });
             list.Add(new Car { Model = "Model2", Color = "Color2", Year = 2018 });
             list.Add(new Car { Model = "Model3", Color = "Color3", Year = 2017 });

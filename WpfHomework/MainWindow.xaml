@@ -11,7 +11,8 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition> </ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ListBox 
+        <DockPanel>
+        <ListBox DockPanel.Dock="Top"
             FontSize="20"
             Background="Aquamarine"
             ItemsSource="{Binding Cars}"
@@ -32,5 +33,30 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
+            <StackPanel DockPanel.Dock="Bottom">
+                <Button Click="Button_Click">Add</Button>
+                <Button Click="Button_Click_1">Remove</Button>
+            </StackPanel>
+        </DockPanel>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <Label>Title</Label>
+                <TextBox Text="{Binding SelectedCar.Model}"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <Label>Color</Label>
+                <TextBox Text="{Binding SelectedCar.Color}"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Row="2">
+                <Label>Year</Label>
+                <TextBox Text="{Binding SelectedCar.Year}"></TextBox>
+            </StackPanel>
+        </Grid>
+        
     </Grid>
 </Window>
