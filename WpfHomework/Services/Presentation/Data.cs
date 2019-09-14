@@ -21,8 +21,7 @@ namespace WpfHomework.Services.Presentation
         {
             this.repository = repository;
             Cars = new ObservableCollection<Car>(repository.GetAll());
-            //Here the bug??
-            int a = 2;
+         
         }
         #region
         public void AddCar(Car car)
